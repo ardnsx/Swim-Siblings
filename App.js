@@ -1,52 +1,26 @@
+import React from 'react';
 import './App.css';
+import Navbar from "./Components/Navbar";
+import Home from "./Pages/Home";
+import Instructors from "./Pages/Instructors";
+import About from "./Pages/About";
+import Contact from "./Pages/Contact";
+import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 
 function App() {
-  return (
-    <>
-
-      {/* Header */}
-      <header id="header" class="alt box-layers-fixed">
-        <h1>Swim Siblings</h1>
-        <nav id="nav">
-          <ul>
-            <li>Info</li>
-            <li>Instructors</li>
-            <li>Book Now</li>
-          </ul>
-        </nav>
-      </header>
-      
-      {/* Banner */}
-      <section id="banner">
-        <div class="inner">
-          <h2>Swim Siblings</h2>
-          <p>Personal Swimming Lessons</p>
-          <ul class="actions">
-            <li>Book Lesson Now</li>
-          </ul>
-        </div>
-      </section>
-      
-      {/* ONE */}
-      <section id="one" class="wrapper style1">
-				<div class="container">
-					<header class="major">
-						<h2>Weekly Features</h2>
-          </header>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer id="footer">
-				<span class="copyright">
-					&copy; Copyright Swim Siblings
-				</span>
-			</footer>
-      
-      
-      </>
-
-  );
+	return (
+		<div className="App">
+      <Router>
+        <Navbar/>
+        <Routes>
+          <Route path='/' exact element={<Home/>}/>
+          <Route path='/instructors' exact element={<Instructors/>}/>
+          <Route path='/about' exact element={<About/>}/>
+          <Route path='/contact' exact element={<Contact/>}/>
+        </Routes>
+      </Router>
+		</div>
+	);
 }
 
-export default App;
+export default App
